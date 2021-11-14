@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+  <link rel="shortcut icon" type="image/jpg" href="public/media/favicon.ico.jpg">
+  <link rel="stylesheet" href="public/css/estilos.css">
+    <title>TODO List</title>
+</head>
+<body>
+
+  <div id="MyClockDisplay" class="clock" onload="showTime()"></div>
+      
+
+  <br>
+      <div class="container">
+        <h1>LISTA DE TAREAS 2.0</h1>
+    
+        <form class="todo-form">
+          <input type="text" class="todo-input" placeholder="Agregar tarea...">
+          <button type="submit" class="add-button">Agregar</button>
+        </form>
+    
+        <ul class="todo-items">
+        </ul>
+      </div>
+        
+      
+      <div class="icon-bar">
+				<a href="https://www.facebook.com" class="facebook"><i class="fa fa-facebook"></i></a> 
+				<a href="https://www.twitter.com" class="twitter"><i class="fa fa-twitter"></i></a> 
+				<a href="https://www.google.com" class="google"><i class="fa fa-google"></i></a> 
+				<a href="https://www.linkedin.com" class="linkedin"><i class="fa fa-linkedin"></i></a>
+				<a href="https://www.youtube.com" class="youtube"><i class="fa fa-youtube"></i></a> 
+			  </div>
+
+     <br> 
+
+
+
+    
+<div class="content">
+
+  <div class="registro">
+      <h1>Registro</h1>
+      <form action="#">
+      <div class="form-group">
+      <label for="name">Nombre</label>
+      <input type="text" class="form-control" id="name" placeholder="Introuce tu nombre">
+      <label for="email">Email</label>
+      <input type="text" class="form-control" id="email" placeholder="Introuce tu email">
+      <label for="psw">Contraseña</label>
+      <input type="password" class="form-control" id="psw" placeholder="Introuce tu contraseña">
+      
+      <input type="submit" onclick="saveData()" id="save_btn" formaction="/send-mkt.php" />
+      </div>  
+    </form>
+
+      <script>
+        function saveData()
+        {
+        let name, email, psw;
+        
+        name=document.getElementById("name").value
+        
+        email=document.getElementById("email").value
+        
+        psw=document.getElementById("psw").value
+        let user_records=new Array();
+        user_records=JSON.parse(localStorage.getItem("users"));[]
+        
+        user_records.push({
+        "name": name,
+        "email": email,
+        "psw": psw
+        })
+        
+        
+        //localStorage.setItem("name", name);
+        //localStorage.setitem("email", email);
+        //localStorage.setItem("psw", psw);
+        
+        localStorage.setItem("users",JSON.stringify(user_records));
+        }
+
+        //<![CDATA[
+        window.onerror=new Function("return true");
+        
+        function saveData() {
+        var link = "tu-nombre@tu-dominio.com"
+        + "?cc=tu-nombre@tu-dominio.com"
+        + "&subject=" + escape(document.getElementById('subject').value)
+        + "&body=" + escape(document.getElementById('comment').value);
+          
+        window.location.href = "mailto:" +link;
+        }
+          //]]>
+        </script>
+</div>
+<br>
+    <div  class="calendario">
+      <label for="start">calendario:</label>
+
+    <input type="date" id="start" name="trip-start"
+        value="2021-11-14"
+        min="2021-01-01" max="2028-12-31">
+    </div>
+  
+
+
+
+
+<script>
+var coll = document.getElementsByClassName("collapsible");
+var i;
+
+for (i = 0; i < coll.length; i++) {
+  coll[i].addEventListener("click", function() {
+    this.classList.toggle("active");
+    var content = this.nextElementSibling;
+    if (content.style.display === "block") {
+      content.style.display = "none";
+    } else {
+      content.style.display = "block";
+    }
+  });
+}
+</script>
+    
+
+
+</body>
+<script src="public/js/main.js"></script>
+</html>
